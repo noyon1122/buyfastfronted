@@ -12,7 +12,6 @@ function App() {
 
   return (
     <div>
-      <Navbar></Navbar>
       <HeroSection></HeroSection>
       <NewArrivals></NewArrivals>
       {content?.pages?.shop?.sections && content?.pages?.shop?.sections?.map((item, index) => <Category key={item?.title+index} {...item} />)}

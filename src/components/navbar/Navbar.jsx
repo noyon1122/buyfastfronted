@@ -1,6 +1,6 @@
 import React from 'react'
 import './Navbar.css';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { Wishlist } from '../common/Wishlist';
 import { AccountIcon } from '../common/AccountIcon';
 import { CartIcon } from '../common/CartIcon';
@@ -19,12 +19,12 @@ const Navbar = () => {
      
        {/* Nav items */}
       <div className='flex flex-wrap ite gap-10 flex-1 font-medium'>
-       <ul className='flex gap-14 text-gray-700 '>
-           <li className='hover:text-black'><a href="/">Shop</a></li>
-           <li className='hover:text-black'><a href="/mens">Men</a></li>
-           <li className='hover:text-black'><a href="/womens">Women</a></li>
-           <li className='hover:text-black'><a href="/kids">Kids</a></li> 
-       </ul>
+      <ul className='flex gap-14 text-gray-600 hover:text-black'>
+          <li><NavLink to='/' className={({isActive})=> isActive ? 'active-link':''}>Shop</NavLink></li>
+          <li><NavLink to='/men' className={({isActive})=> isActive ? 'active-link':''}>Men</NavLink></li>
+          <li><NavLink to='/women' className={({isActive})=> isActive ? 'active-link':''}>Women</NavLink></li>
+          <li><NavLink to='/kids' className={({isActive})=> isActive ? 'active-link':''}>Kids</NavLink></li>
+        </ul>
       </div>
 
        {/* Search Bar */}
@@ -40,9 +40,9 @@ const Navbar = () => {
    {/* Actions items icons */}
       <div className='flex flex-wrap items-center gap-4'>
       <ul className='flex gap-8 '>
-          <li><button ><Wishlist></Wishlist></button></li>
-          <li><button><AccountIcon></AccountIcon></button></li>
-          <li><button><CartIcon></CartIcon></button></li>
+          <li><Link ><Wishlist></Wishlist></Link></li>
+          <li><Link><AccountIcon></AccountIcon></Link></li>
+          <li><Link><CartIcon></CartIcon></Link></li>
         
         </ul>
       </div>
